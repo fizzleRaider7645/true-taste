@@ -14,7 +14,8 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "yelp-fusion": "^3.0.0"
+    "yelp-fusion": "^3.0.0",
+    "clean-css": ">=4.1.11"
   },
   "devDependencies": {
     "nodemon": "^1.19.1",

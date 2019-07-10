@@ -4,8 +4,8 @@ const yelp = require('yelp-fusion');
 const client = yelp.client(process.env.API_KEY);
 
 
-router.get('/', function(req, res, next) {
-  client.reviews('starbucks-boston')
+router.post('/', function(req, res, next) {
+  client.reviews(`${req.body.term}-${req.body.location}`)
     .then(response => {
       res.send(response.jsonBody)
     }).catch(e => {

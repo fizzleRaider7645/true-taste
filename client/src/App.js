@@ -9,18 +9,6 @@ class App extends Component {
         this.state = { apiResponse: "" };
     }
 
-    callAPI() {
-        fetch("http://localhost:9000/testAPI")
-            .then(res => res.json())
-            .then(res => console.log(res))
-            .then(res => this.setState({ apiResponse: res }))
-            .catch(err => err);
-    }
-
-    componentDidMount() {
-        this.callAPI();
-    }
-
     render() {
         return (
             <div className="App">
