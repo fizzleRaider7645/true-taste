@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class TestForm extends Component {
     constructor() {
@@ -18,7 +19,7 @@ class TestForm extends Component {
               'Content-Type': 'application/json'
             }
           }).then(res => res.json())
-          .then(response => console.log('Success:', JSON.stringify(response)))
+          .then(res => console.log('Success:', res))
           .catch(error => console.error('Error:', error));
     }
 
@@ -26,14 +27,6 @@ class TestForm extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-    }
-
-    callAPI() {
-        fetch("http://localhost:9000/testAPI")
-            .then(res => res.json())
-            .then(res => console.log(res))
-            .then(res => this.setState({ apiResponse: res }))
-            .catch(err => err);
     }
 
     render() {
