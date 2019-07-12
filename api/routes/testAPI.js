@@ -1,33 +1,42 @@
-// require('dotenv').config(); /* Keeping this here for testing... is really located in app.js*/
+require('dotenv').config()
 
-var express = require('express');;
-var router = express.Router();
+const Yelp = require('../modules/Yelp')
+const Zomato =  require('../modules/Zomato')
+
+const express = require('express');;
+const router = express.Router();
 
 const yelp = require('yelp-fusion');
 const yelpClient = yelp.client(process.env.YELP_API_KEY);
 
-var zomato = require('zomato-api');
-var zomatoClient = zomato({
+const zomato = require('zomato-api');
+const zomatoClient = zomato({
 userKey: process.env.ZOMATO_API_KEY
 })
 
+let a = new Yelp(yelpClient, 'Four Barrel Coffee', 'san francisco, ca')
+
+
 
 router.post('/', function(req, res, next) {
-  const searchRequest = {
-    term:'Four Barrel Coffee',
-    location: 'san francisco, ca'
-  };
+  console.log(a)
+  // const searchRequest = {
+  //   term:'Four Barrel Coffee',
+  //   location: 'san francisco, ca'
+  // };
   
-  yelpClient.search(searchRequest).then(response => {
-    const firstResult = response.jsonBody.businesses[0];
-    const prettyJson = JSON.stringify(firstResult, null, 4);
-    console.log(prettyJson);
-  }).catch(e => {
-    console.log(e);
-  });
+  // yelpClient.search(searchRequest).then(response => {
+  //   const firstResult = response.jsonBody.businesses[0];
+  //   const prettyJson = JSON.stringify(firstResult, null, 4);
+  //   res.send(prettyJson)
+  //   console.log(prettyJson);
+  // }).catch(e => {
+  //   console.log(e);
+  // });
+  // zomatoClient.search({q: 'American Joes Boston'})
+  //   .then(response => res.send(response))
+  //   .catch(err => console.log(err));
 
-  zomatoClient.getCollections({city_id: 256})
-  .then(res => console.log(res))
-  .catch(err => console.log(err));
 });
+
 module.exports = router;
