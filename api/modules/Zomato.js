@@ -6,9 +6,7 @@ class Zomato {
     }
 }
 
-Zomato.prototype.displayLatestReview = function() {
-    let reviewHtml = `<li><strong>${this.title}</strong> - ${this.beerName}</li>`
-    return reviewHtml;
+Zomato.prototype.search = function() {
   }
 
 module.exports = new Zomato();

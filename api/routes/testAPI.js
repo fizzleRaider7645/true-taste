@@ -14,17 +14,19 @@ const zomatoClient = zomato({
 userKey: process.env.ZOMATO_API_KEY
 })
 
-let a = new Yelp(yelpClient, 'Four Barrel Coffee', 'san francisco, ca')
+let yelpAPI = new Yelp(yelpClient, null, null)
 
 
 
 router.post('/', function(req, res, next) {
-  console.log(a)
+  console.log(yelpAPI)
   // const searchRequest = {
   //   term:'Four Barrel Coffee',
   //   location: 'san francisco, ca'
   // };
-  
+  yelpAPI.searchTerm = req.body.term;
+  yelpAPI.searchLocation = req.body.location;
+  yelpAPI.search(res)
   // yelpClient.search(searchRequest).then(response => {
   //   const firstResult = response.jsonBody.businesses[0];
   //   const prettyJson = JSON.stringify(firstResult, null, 4);

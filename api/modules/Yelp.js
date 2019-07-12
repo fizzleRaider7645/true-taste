@@ -6,9 +6,14 @@ class Yelp {
     }
 }
 
-// Yelp.prototype.displayLatestReview = function() {
-//     let reviewHtml = `<li><strong>${this.title}</strong> - ${this.beerName}</li>`
-//     return reviewHtml;
-//   }
+Yelp.prototype.search = function(res) {
+    const searchRequest = {term: this.searchTerm, location: this.searchLocation}
+    this.yelpClient.search(searchRequest).then(response => {
+        res.send(response.jsonBody)
+      }).catch(e => {
+        res.send(e.response.body)
+        console.log(e)
+    });
+  }
 
 module.exports = Yelp;
