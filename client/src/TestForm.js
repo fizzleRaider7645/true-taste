@@ -18,8 +18,9 @@ class TestForm extends Component {
             headers:{
               'Content-Type': 'application/json'
             }
-          }).then(res => res.json())
-          .then(res => console.log('Success:', res))
+          })
+          .then(res => res.json())
+          .then(res => console.log(res))
           .catch(error => console.error('Error:', error));
     }
 
