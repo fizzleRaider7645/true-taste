@@ -17,17 +17,10 @@ userKey: process.env.ZOMATO_API_KEY
 const yelpAPI = new Yelp(yelpClient, null, null)
 const zomatoAPI = new Zomato(zomatoClient, null, null)
 
-
-router.post('/',  function(req, res, next) {
-  zomatoFetch(req, res, next)
-});
-
-
-const yelpFetch = () => {
+const yelpFetch = (req, res, next) => {
   yelpAPI.searchTerm = req.body.term;
   yelpAPI.searchLocation = req.body.location;
   yelpAPI.search(res)
-  // next()
 }
 
 const zomatoFetch = (req, res, next) => {
@@ -35,6 +28,14 @@ const zomatoFetch = (req, res, next) => {
   zomatoAPI.searchLocation = req.body.location;
   zomatoAPI.search(req, res, next)
 }
+
+app.post('/', function(req, res, next) {
+  res.yelpData = yelpFetch(req, res, next)
+  next()
+}, function(req, res, next) {
+  res.zomatoData = zomatoFetch()
+  res.send()
+});
 
 
 module.exports = router;

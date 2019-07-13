@@ -3,7 +3,7 @@ class Zomato {
         this.zomatoClient = zomatoClient
         this.searchTerm = term
         this.searchLocation = location
-        this.response = ""
+        this.response = {}
     }
 }
 
@@ -13,7 +13,7 @@ Zomato.prototype.search = function(req, res, next) {
     this.zomatoClient.search({q: stringSearch})
     .then(response => res.send(response))
     // .then(response => this.response = response)
-    .catch(err => console.log(err));
+    // .catch(err => console.log(err));
   }
 
 module.exports = Zomato;
