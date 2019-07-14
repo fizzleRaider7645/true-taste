@@ -3,20 +3,15 @@ class Yelp {
         this.yelpClient = yelpClient
         this.searchTerm = searchTerm
         this.searchLocation = searchLocation
-        this.response = ""
     }
 }
 
-Yelp.prototype.search = function(res, req, next) {
+Yelp.prototype.search = function(req, res, next) {
     const searchRequest = {term: this.searchTerm, location: this.searchLocation}
     this.yelpClient.search(searchRequest).then(response => {
-       ({yelpResponse: response.jsonBody})
-        // this.response = response.jsonBody
-      })
-      .catch(e => {
-        res.send(e)
-    });
-    return this
+       (req.yelpData = response.jsonBody)
+       next()
+      });
   }
 
 module.exports = Yelp;
