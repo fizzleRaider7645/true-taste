@@ -12,7 +12,7 @@ class TestForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch("http://localhost:9000/testAPI", {
+        fetch("http://localhost:9000/search", {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(this.state), // data can be `string` or {object}!
             headers:{

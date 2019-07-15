@@ -8,7 +8,13 @@ var logger = require('morgan');
 var cors = require('cors');
 
 const Yelp = require('./modules/Yelp')
+const yelp = require('yelp-fusion');
+
 const Zomato =  require('./modules/Zomato')
+const zomato = require('zomato-api');
+const zomatoClient = zomato({
+  userKey: process.env.ZOMATO_API_KEY
+})
 
 var app = express();
 
@@ -24,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use(function(req, res, next) {
-  const yelp = require('yelp-fusion');
   const yelpClient = yelp.client(process.env.YELP_API_KEY);
   const yelpAPI = new Yelp(yelpClient, null, null)
   yelpAPI.searchTerm = req.body.term;
@@ -33,10 +38,6 @@ app.use(function(req, res, next) {
 })
 
 app.use(function(req, res, next) {
-  const zomato = require('zomato-api');
-  const zomatoClient = zomato({
-    userKey: process.env.ZOMATO_API_KEY
-  })
   const zomatoAPI = new Zomato(zomatoClient, null, null)
   zomatoAPI.searchTerm = req.body.term;
   zomatoAPI.searchLocation = req.body.location;
@@ -51,9 +52,6 @@ app.use(function(req, res, next) {
   }
   res.send(finalResult)
 })
-
-
-
 
 
 // error handler
