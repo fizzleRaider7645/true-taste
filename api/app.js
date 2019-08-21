@@ -9,6 +9,7 @@ var cors = require('cors');
 
 const Yelp = require('./modules/Yelp')
 const yelp = require('yelp-fusion');
+const yelpClient = yelp.client(process.env.YELP_API_KEY);
 
 const Zomato =  require('./modules/Zomato')
 const zomato = require('zomato-api');
@@ -30,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use(function(req, res, next) {
-  const yelpClient = yelp.client(process.env.YELP_API_KEY);
   const yelpAPI = new Yelp(yelpClient, null, null)
   yelpAPI.searchTerm = req.body.term;
   yelpAPI.searchLocation = req.body.location;
@@ -45,24 +45,12 @@ app.use(function(req, res, next) {
 })
 
 app.use(function(req, res, next) {
-  const finalResult = {
+  let finalResult = {
     search: req.body,
     yelpData: req.yelpData,
     zomatoData: req.zomatoData
   }
   res.send(finalResult)
 })
-
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
 
 module.exports = app;
