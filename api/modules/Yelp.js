@@ -11,7 +11,7 @@ Yelp.prototype.search = function(req, res, next) {
     this.yelpClient.search(searchRequest).then(response => {
        (req.yelpData = response.jsonBody)
        next()
-      })
+      }).catch(e=> res.send(e))
   }
 
 module.exports = Yelp;
