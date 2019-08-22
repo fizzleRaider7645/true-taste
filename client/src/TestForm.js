@@ -6,7 +6,8 @@ class TestForm extends Component {
         super()
         this.state = {
             term: "",
-            location: ""
+            location: "",
+            searchResults: {}
         }
     }
 
@@ -21,7 +22,7 @@ class TestForm extends Component {
           })
           .then(res => res.json())
           .then(res => console.log(res))
-          .catch(error => console.error('Error:', error));
+        //   .catch(error => console.error('Error:', error.body));
     }
 
     handleChange = (event) => {
