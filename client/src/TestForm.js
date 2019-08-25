@@ -21,7 +21,7 @@ class TestForm extends Component {
             }
           })
           .then(res => res.json())
-          .then(res => console.log(res))
+          .then(res => this.setState({searchResults: res}))
         //   .catch(error => console.error('Error:', error.body));
     }
 
