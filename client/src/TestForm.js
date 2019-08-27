@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import { Results } from './components/Results'
 class TestForm extends Component {
     constructor() {
         super()
@@ -22,7 +22,6 @@ class TestForm extends Component {
           })
           .then(res => res.json())
           .then(res => this.setState({searchResults: res}))
-        //   .catch(error => console.error('Error:', error.body));
     }
 
     handleChange = (event) => {
@@ -30,14 +29,19 @@ class TestForm extends Component {
             [event.target.name]: event.target.value
         })
     }
-
     render() {
         return (
+            <div>
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} value={this.state.term} name="term" type="text" placeholder="Term"></input>
                 <input onChange={this.handleChange} value={this.state.location} name="location" type="text" placeholder="Location"></input>
                 <button type="submit">Send</button>
             </form>
+            <div>
+                
+            </div>
+            <Results />
+            </div>
         )
     }
 }
