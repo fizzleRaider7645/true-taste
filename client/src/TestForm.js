@@ -37,9 +37,6 @@ class TestForm extends Component {
                 <input onChange={this.handleChange} value={this.state.location} name="location" type="text" placeholder="Location"></input>
                 <button type="submit">Send</button>
             </form>
-            <div>
-                
-            </div>
             <Results />
             </div>
         )

@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
@@ -30,4 +30,22 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+#results {
+  width: 800px;
+  margin: auto;
+}
+#yelp {
+  border: solid;
+  width: 300px;
+  float: left;
+  height: 500px;
+}
+#zomato {
+  border: solid;
+  width: 300px;
+  float: right;
+  height: 500px;
 }
