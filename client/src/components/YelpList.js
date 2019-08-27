@@ -5,9 +5,13 @@ class YelpList extends Component {
         super()
     }
     render() {
+        let results;
+        if(this.props.data) {
+            results = this.props.data.businesses.map(business => <li key={Math.random()}>{business.name} - {business.location.address1}</li>)
+        }
         return (
             <ol>
-                <li>Yelp List Item</li>
+                {results}
             </ol>
         )
     }
