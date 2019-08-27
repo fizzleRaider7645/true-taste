@@ -7,7 +7,7 @@ class SearchForm extends Component {
         this.state = {
             term: "",
             location: "",
-            searchResults: {}
+            searchResults: null
         }
     }
 
