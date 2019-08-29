@@ -32,7 +32,7 @@ class SearchForm extends Component {
     render() {
         return (
             <div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} id="search-form">
                 <input onChange={this.handleChange} value={this.state.term} name="term" type="text" placeholder="Term"></input>
                 <input onChange={this.handleChange} value={this.state.location} name="location" type="text" placeholder="Location"></input>
                 <button type="submit">Send</button>

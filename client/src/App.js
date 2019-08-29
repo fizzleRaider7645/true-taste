@@ -13,6 +13,9 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <header>
+                    True Taste
+                </header>
                 <SearchForm />
             </div>
         );
