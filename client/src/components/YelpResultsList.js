@@ -5,7 +5,7 @@ class YelpResultsList extends Component {
         super()
     }
     render() {
-        // console.log(this.props.data)
+        console.log(this.props.data)
         let results = this.props.data.map(business => <li key={Math.random()}>{business.name}</li>)
         
         return (

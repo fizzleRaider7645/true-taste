@@ -8,10 +8,10 @@ export class Results extends Component {
     }
     render() {
         let yelpSearchResultsList;
-        let zomatoSearchResultsList;
+        // let zomatoSearchResultsList;
         if(this.props.searchData) {
             yelpSearchResultsList = <YelpResultsList data={this.props.searchData.yelpData.businesses}/>
-            zomatoSearchResultsList = <ZomatoResultsList data={this.props.searchData.zomatoData.restaurants}/>
+            // zomatoSearchResultsList = <ZomatoResultsList data={this.props.searchData.zomatoData.restaurants}/>
             // yelpSearchResultsList = <ResultsList data={this.props.searchData.yelpData.businesses}/>
             // zomatoSearchResultsList = <ResultsList data={this.props.searchData.zomatoData.restaurants}/>
         }
@@ -21,10 +21,10 @@ export class Results extends Component {
                     <header id='yelp-header'>Yelp</header>
                     {yelpSearchResultsList}
                 </div>
-                
+
                 <div id="zomato">
                     <header id='zomato-header'>Zomato</header>
-                    {zomatoSearchResultsList}
+                    {/* {zomatoSearchResultsList} */}
                 </div>
             </div>
         )

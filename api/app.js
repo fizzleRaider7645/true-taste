@@ -1,4 +1,5 @@
 require('dotenv').config()
+// const bodyParser = require('body-parser');
 
 var createError = require('http-errors');
 var express = require('express');
@@ -30,6 +31,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
+// app.use(bodyParser.json({limit: '50mb'}));
+// app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+// app.use(bodyParser.json({ limit: '50mb' }));
+// app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
+
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next()
+// })
+
 app.use(function(req, res, next) {
   const yelpAPI = new Yelp(yelpClient, null, null)
   yelpAPI.searchTerm = req.body.term;
@@ -37,18 +49,18 @@ app.use(function(req, res, next) {
   yelpAPI.search(req, res, next)
 })
 
-app.use(function(req, res, next) {
-  const zomatoAPI = new Zomato(zomatoClient, null, null)
-  zomatoAPI.searchTerm = req.body.term;
-  zomatoAPI.searchLocation = req.body.location;
-  zomatoAPI.search(req, res, next)
-})
+// app.use(function(req, res, next) {
+//   let zomatoAPI = new Zomato(zomatoClient, null, null)
+//   zomatoAPI.searchTerm = req.body.term;
+//   zomatoAPI.searchLocation = req.body.location;
+//   zomatoAPI.search(req, res, next)
+// })
 
 app.use(function(req, res, next) {
   let finalResult = {
     search: req.body,
     yelpData: req.yelpData,
-    zomatoData: req.zomatoData
+    // zomatoData: req.zomatoData
   }
   res.send(finalResult)
 })
