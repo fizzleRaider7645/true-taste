@@ -1,7 +1,6 @@
 import React, {Component } from 'react'
-import ResultsList from './ResultsList'
 import YelpResultsList from './YelpResultsList'
-import ZomatoResultsList from './ZomatoResultsList'
+// import ZomatoResultsList from './ZomatoResultsList'
 export class Results extends Component {
     constructor(props) {
         super()
@@ -20,11 +19,6 @@ export class Results extends Component {
                 <div id="yelp">
                     <header id='yelp-header'>Yelp</header>
                     {yelpSearchResultsList}
-                </div>
-
-                <div id="zomato">
-                    <header id='zomato-header'>Zomato</header>
-                    {/* {zomatoSearchResultsList} */}
                 </div>
             </div>
         )

@@ -9,15 +9,15 @@
 #yelp {
   border: solid;
   width: 300px;
-  float: left;
+  float: right;
   height: 500px;
 }
-#zomato {
+/* #zomato {
   border: solid;
   width: 300px;
   float: right;
   height: 500px;
-}
+} */
 
 #search-form {
   border: solid;
