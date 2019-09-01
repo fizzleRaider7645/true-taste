@@ -7,11 +7,16 @@ class Business extends Component {
             clicked: false
         }
     }
+
+    handleClick = (event) => {
+
+    }
+
     render() {
         return (
-            <div>
+            <li onClick={this.handleClick}>
 
-            </div>
+            </li>
         )
     }
 }
