@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Business from './Business'
 
 class YelpResultsList extends Component {
     constructor(props) {
