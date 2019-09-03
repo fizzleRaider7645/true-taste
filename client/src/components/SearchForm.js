@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Results } from './Results'
-
+import { connect } from 'react-redux'
 class SearchForm extends Component {
     constructor() {
         super()
@@ -37,10 +37,13 @@ class SearchForm extends Component {
                 <input onChange={this.handleChange} value={this.state.location} name="location" type="text" placeholder="Location"></input>
                 <button type="submit">Send</button>
             </form>
-            <Results searchData={this.state.searchResults}/>
+            {/* <Results searchData={this.state.searchResults}/> */}
             </div>
         )
     }
 }
 
-export default SearchForm
+
+
+export default connect(null, null)(SearchForm)
+
