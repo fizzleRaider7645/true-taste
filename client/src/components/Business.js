@@ -8,15 +8,19 @@ class Business extends Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({business: this.props.business})
+    }
+
     handleClick = (event) => {
         
     }
 
     render() {
         return (
-            <li onClick={this.handleClick}>
+            <div onClick={this.handleClick}>
 
-            </li>
+            </div>
         )
     }
 }
