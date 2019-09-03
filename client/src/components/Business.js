@@ -9,7 +9,7 @@ class Business extends Component {
     }
 
     handleClick = (event) => {
-
+        
     }
 
     render() {
