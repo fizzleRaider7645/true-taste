@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Results } from './Results'
 import { connect } from 'react-redux'
+
 class SearchForm extends Component {
     constructor() {
         super()
