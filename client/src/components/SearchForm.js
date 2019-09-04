@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Results } from './Results'
 import { connect } from 'react-redux'
+import { getBusinesses } from '../actions/BusinessActions'
 
 class SearchForm extends Component {
     constructor() {
@@ -14,15 +15,16 @@ class SearchForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch("http://localhost:9000/search", {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(this.state), // data can be `string` or {object}!
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          })
-          .then(res => res.json())
-          .then(res => this.setState({searchResults: res}))
+        this.props.getBusinesses(this.state)
+        // fetch("http://localhost:9000/search", {
+        //     method: 'POST', // or 'PUT'
+        //     body: JSON.stringify(this.state), // data can be `string` or {object}!
+        //     headers:{
+        //       'Content-Type': 'application/json'
+        //     }
+        //   })
+        //   .then(res => res.json())
+        //   .then(res => this.setState({searchResults: res}))
     }
 
     handleChange = (event) => {
@@ -46,5 +48,5 @@ class SearchForm extends Component {
 
 
 
-export default connect(null, null)(SearchForm)
+export default connect(null, { getBusinesses })(SearchForm)
 

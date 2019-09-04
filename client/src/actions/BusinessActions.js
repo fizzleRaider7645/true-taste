@@ -1,6 +1,6 @@
 // import { API_URL } from './ApiUrl'
 // import Auth from '../modules/Auth'
-// import * as types from './ActionTypes'
+import * as types from './ActionTypes'
 
 // /* Action Action Creator - CLEARS REDUX STORE AFTER LOGOUT */
 // export const unsetUser = payload => {
@@ -31,5 +31,31 @@
 //         })
 //     }
 // }
+
+const setBusinesses = payload => {
+    return {
+        type: types.GET_BUSINESSES,
+        payload
+    }
+}
+
+
+export const getBusinesses = (searchFormState) => {
+    return dispatch => {
+        fetch("http://localhost:9000/search", {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(searchFormState), // data can be `string` or {object}!
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(businesses => {
+            dispatch(setBusinesses(businesses))
+        });
+    }
+}
+
+
 
 
