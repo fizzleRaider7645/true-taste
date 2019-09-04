@@ -1,7 +1,8 @@
 import React, {Component } from 'react'
 import YelpResultsList from './YelpResultsList'
+import { connect } from 'react-redux'
 // import ZomatoResultsList from './ZomatoResultsList'
-export class Results extends Component {
+class Results extends Component {
     constructor(props) {
         super()
     }
@@ -18,9 +19,17 @@ export class Results extends Component {
             <div id="results">
                 <div id="yelp">
                     <header id='yelp-header'>Yelp</header>
-                    {yelpSearchResultsList}
+                    {/* {yelpSearchResultsList} */}
                 </div>
             </div>
         )
     }
 }
+
+const mapStatetoProps = (state) => {
+    return ({
+        ...state.search
+    })
+}
+
+export default connect(mapStatetoProps, null)(Results)

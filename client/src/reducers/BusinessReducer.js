@@ -1,9 +1,9 @@
 import * as types from '../actions/ActionTypes'
-const initial = { businesses: [] }
+const initial = {results:[]}
 export default (state = initial, action) => {
     switch(action.type) {
         case types.GET_BUSINESSES:
-        return { ...state, businesses: action.payload};
+        return { ...state, results: action.payload};
         // case types.UPDATE_BALANCE:
         // return {...state, account: { balance: action.payload } }
         // case types.USER_LOGOUT:
