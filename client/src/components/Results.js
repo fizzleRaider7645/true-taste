@@ -18,7 +18,10 @@ class Results extends Component {
         return (
             <div id="results">
                 <div id="yelp">
-                    <header id='yelp-header'>Yelp</header>
+                    <header id='yelp-header'>
+                    {this.props.results.search ? this.props.results.search.location : 'Yelp'}
+                    </header>
+
                     <ul id="yelp-list">
                         {yelpResults}
                     </ul>

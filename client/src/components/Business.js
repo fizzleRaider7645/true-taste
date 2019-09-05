@@ -27,8 +27,8 @@ class Business extends Component {
     render() {
         return (
             <li onClick={this.handleClick}>
-                Name: {this.props.business.name}<br />
-                -{this.props.business.location.address1}
+                <h3>{this.props.business.name}</h3>
+                <i>-{this.props.business.location.address1}</i>
             </li>
         )
     }
