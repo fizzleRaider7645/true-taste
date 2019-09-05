@@ -11,7 +11,12 @@
   width: 300px;
   float: right;
   height: 500px;
+  overflow: scroll;
 }
+
+/* #yelp {
+  overflow: scroll;
+} */
 /* #zomato {
   border: solid;
   width: 300px;

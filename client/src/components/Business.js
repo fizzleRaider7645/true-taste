@@ -25,13 +25,10 @@ class Business extends Component {
     }
 
     render() {
-        // let businessName;
-        // if(this.props.business.name) {
-        //     businessName = this.props.business.name
-        // }
         return (
             <li onClick={this.handleClick}>
-                {this.props.business.name}
+                Name: {this.props.business.name}<br />
+                -{this.props.business.location.address1}
             </li>
         )
     }
