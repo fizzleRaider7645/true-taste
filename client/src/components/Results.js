@@ -11,9 +11,9 @@ class Results extends Component {
         if(this.props.results.yelpData) {
             // this.props.results.yelpData.businesses.map(b=><li>{b.name}</li>)
             // yelpResults = this.props.yelpData.businesses[0].name
-            yelpResults = this.props.results.yelpData.businesses.map(b=> <li key={Math.random()}>{b.name}</li>)
+            // yelpResults = this.props.results.yelpData.businesses.map(b=> <li key={Math.random()}>{b.name}</li>)
+            yelpResults = <Business business={this.props.results.yelpData.businesses[0]}/>
         }
-        console.log(yelpResults)
         return (
             <div id="results">
                 <div id="yelp">
