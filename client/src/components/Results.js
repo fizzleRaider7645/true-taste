@@ -8,18 +8,18 @@ class Results extends Component {
     }
     render() {
         let yelpResults;
-        console.log(this.props.results.yelpData)
-        // if(this.props.results.yelpData.businesses) {
-        //     yelpResults.map(business => {
-
-        //     });
-        // }
+        if(this.props.results.yelpData) {
+            // this.props.results.yelpData.businesses.map(b=><li>{b.name}</li>)
+            // yelpResults = this.props.yelpData.businesses[0].name
+            yelpResults = this.props.results.yelpData.businesses.map(b=> <li>{b.name}</li>)
+        }
+        console.log(yelpResults)
         return (
             <div id="results">
                 <div id="yelp">
                     <header id='yelp-header'>Yelp</header>
                     <ul id="yelp-list">
-
+                        {yelpResults}
                     </ul>
                 </div>
             </div>

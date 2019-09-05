@@ -9,7 +9,7 @@ class Business extends Component {
     }
 
     componentDidMount() {
-        this.setState({business: this.props.business})
+        this.setState({...this.state, business: this.props.business})
     }
 
     handleClick = (event) => {
@@ -18,9 +18,9 @@ class Business extends Component {
 
     render() {
         return (
-            <div onClick={this.handleClick}>
+            <li onClick={this.handleClick}>
 
-            </div>
+            </li>
         )
     }
 }
