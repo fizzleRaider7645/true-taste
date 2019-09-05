@@ -1,25 +1,26 @@
-import React, {Component } from 'react'
-import YelpResultsList from './YelpResultsList'
-import { connect } from 'react-redux'
-// import ZomatoResultsList from './ZomatoResultsList'
+import React, {Component } from 'react';
+import Business from './Business'
+import { connect } from 'react-redux';
+
 class Results extends Component {
     constructor(props) {
         super()
     }
     render() {
-        let yelpSearchResultsList;
-        // let zomatoSearchResultsList;
-        if(this.props.searchData) {
-            yelpSearchResultsList = <YelpResultsList data={this.props.searchData.yelpData.businesses}/>
-            // zomatoSearchResultsList = <ZomatoResultsList data={this.props.searchData.zomatoData.restaurants}/>
-            // yelpSearchResultsList = <ResultsList data={this.props.searchData.yelpData.businesses}/>
-            // zomatoSearchResultsList = <ResultsList data={this.props.searchData.zomatoData.restaurants}/>
-        }
+        let yelpResults;
+        console.log(this.props.results.yelpData)
+        // if(this.props.results.yelpData.businesses) {
+        //     yelpResults.map(business => {
+
+        //     });
+        // }
         return (
             <div id="results">
                 <div id="yelp">
                     <header id='yelp-header'>Yelp</header>
-                    {/* {yelpSearchResultsList} */}
+                    <ul id="yelp-list">
+
+                    </ul>
                 </div>
             </div>
         )
