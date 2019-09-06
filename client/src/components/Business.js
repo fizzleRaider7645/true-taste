@@ -8,10 +8,6 @@ class Business extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.setState({...this.state, business: this.props.business})
-    // }
-
     handleClick = (event) => {
         if(this.state.clicked) {
             this.setState({
