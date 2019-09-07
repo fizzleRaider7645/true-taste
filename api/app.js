@@ -31,17 +31,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-// app.use(bodyParser.json({limit: '50mb'}));
-// app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-// app.use(bodyParser.json({ limit: '50mb' }));
-// app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
-
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next()
-// })
-
 app.use(function(req, res, next) {
   const yelpAPI = new Yelp(yelpClient, null, null)
   yelpAPI.searchTerm = req.body.term;
@@ -63,6 +52,10 @@ app.use(function(req, res, next) {
     // zomatoData: req.zomatoData
   }
   res.send(finalResult)
+})
+
+app.get('/businesses', function (req, res, next) {
+  res.send('Hello there!')
 })
 
 module.exports = app;

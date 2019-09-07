@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getBusiness } from '../actions/BusinessActions'
 
 class Business extends Component {
     constructor(props) {
@@ -19,7 +21,7 @@ class Business extends Component {
             })
         }
 
-        
+        this.props.getBusiness(this.props.business.id)
     }
 
     render() {
@@ -32,4 +34,4 @@ class Business extends Component {
     }
 }
 
-export default Business
+export default connect(null, null)(Business)
