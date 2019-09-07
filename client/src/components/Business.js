@@ -18,6 +18,8 @@ class Business extends Component {
                 clicked: true
             })
         }
+
+        
     }
 
     render() {

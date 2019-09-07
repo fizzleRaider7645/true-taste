@@ -15,15 +15,6 @@ class SearchForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.getBusinesses(this.state)
-        // fetch("http://localhost:9000/search", {
-        //     method: 'POST', // or 'PUT'
-        //     body: JSON.stringify(this.state), // data can be `string` or {object}!
-        //     headers:{
-        //       'Content-Type': 'application/json'
-        //     }
-        //   })
-        //   .then(res => res.json())
-        //   .then(res => this.setState({searchResults: res}))
     }
 
     handleChange = (event) => {

@@ -1,4 +1,2 @@
 export const GET_BUSINESSES = "GET_BUSINESSES";
-// export const USER_LOGOUT = "USER_LOGOUT";
-// export const UPDATE_BALANCE = "UPDATE_BALANCE";
-// export const ACTUATE_TRANSACTION = "ACTUATE_TRANSACTION";
+export const GET_BUSINESS = "GET_BUSINESS"
