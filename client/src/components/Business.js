@@ -34,4 +34,4 @@ class Business extends Component {
     }
 }
 
-export default connect(null, null)(Business)
+export default connect(null, { getBusiness } )(Business)

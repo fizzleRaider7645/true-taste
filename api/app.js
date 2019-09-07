@@ -1,6 +1,4 @@
 require('dotenv').config()
-// const bodyParser = require('body-parser');
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -54,8 +52,8 @@ app.use(function(req, res, next) {
   res.send(finalResult)
 })
 
-app.get('/businesses', function (req, res, next) {
-  res.send('Hello there!')
+app.get('/businesses:id', function (req, res, next) {
+  res.send(req.params)
 })
 
 module.exports = app;
