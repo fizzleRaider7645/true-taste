@@ -52,8 +52,12 @@ app.use(function(req, res, next) {
   res.send(finalResult)
 })
 
-app.get('/businesses:id', function (req, res, next) {
-  res.send(req.params)
+app.post(`http://localhost:9000/businesses/:id`, function (req, res, next) {
+  yelpClient.business('gary-danko-san-francisco').then(response => {
+    res.send('hi');
+  }).catch(e => {
+    console.log(e);
+  });
 })
 
 module.exports = app;
